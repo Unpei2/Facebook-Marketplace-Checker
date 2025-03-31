@@ -30,7 +30,7 @@ driver.get("""https://www.facebook.com/marketplace/edmonton/vehicles?minPrice=10
 driver.implicitly_wait(5)
 
 
-def open():
+def login():
     os.system("cls")
         
     # Wait 10 second to avoid captcha
@@ -50,9 +50,13 @@ def open():
 
     html_content = driver.page_source
 
+    with open("source.txt", "w") as file:
+        file.write(html_content)
+
     return html_content
 
 def traverse(html_content):
+    driver.switch_to.frame("AUXi27QsFWq0fkWZG8jFK67PVk4")
     # soup = BeautifulSoup(html_content, "html.parser")
     # wait = WebDriverWait(driver, 10)
     
@@ -70,8 +74,10 @@ def traverse(html_content):
     
 
 def main():
-    html_content = open()
+    html_content = login()
     traverse(html_content)
 
 if __name__ == "__main__":
     main()
+
+    
