@@ -74,9 +74,10 @@ def traverse(html_content):
         click_listing = driver.find_element(By.XPATH, FULL_PATH)
         click_listing.click()
 
-        mileage = soup.find_all("div", class_=INFO_CLASS)
-
-        print(mileage, 1231231231321231321313123)
+        mileage = soup.find("div", class_="x1gslohp")
+        for div in mileage:
+            print(div.get_text())
+        print(1231231231321231321313123)
         counter += 1
     # print(stuff)  
     
