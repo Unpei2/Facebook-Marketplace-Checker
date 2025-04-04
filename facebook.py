@@ -54,8 +54,8 @@ def login():
 
 
     html_content = driver.page_source
-
-    with open("source.txt", "w") as file:
+    
+    with open("source.txt", "w", encoding="utf-8") as file:
         file.write(html_content)
 
     return html_content
@@ -75,6 +75,7 @@ def traverse(html_content):
         click_listing.click()
 
         mileage = soup.find("div", class_="x1gslohp")
+        print(mileage)
         for div in mileage:
             print(div.get_text())
         print(1231231231321231321313123)
